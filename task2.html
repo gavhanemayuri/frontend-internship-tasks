@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Card</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f4f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.product-card{
+    width:300px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    text-align:center;
+    padding:20px;
+    transition: transform 0.3s;
+}
+
+.product-card:hover{
+    transform: translateY(-8px);
+}
+
+.product-card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.product-name{
+    font-size:20px;
+    margin:15px 0 5px;
+}
+
+.price{
+    color:#27ae60;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+button{
+    background:#3498db;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover{
+    background:#2980b9;
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="Smartphone">
+
+<h2 class="product-name">Smartphone X</h2>
+
+<p class="price">₹24,999</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+</body>
+</html>
