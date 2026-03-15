@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Quiz App</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f9;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.quiz-container{
+background:white;
+padding:25px;
+width:400px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+h2{
+margin-bottom:15px;
+}
+
+.options{
+text-align:left;
+margin-top:10px;
+}
+
+button{
+margin-top:20px;
+padding:10px 15px;
+background:#3498db;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2980b9;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+<h2 id="question">Question text</h2>
+
+<div class="options">
+<label><input type="radio" name="answer" value="0"> <span id="opt0"></span></label><br>
+<label><input type="radio" name="answer" value="1"> <span id="opt1"></span></label><br>
+<label><input type="radio" name="answer" value="2"> <span id="opt2"></span></label><br>
+<label><input type="radio" name="answer" value="3"> <span id="opt3"></span></label>
+</div>
+
+<button onclick="nextQuestion()">Next</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+const quiz = [
+{
+question: "Which language is used for web page structure?",
+options: ["CSS","HTML","Java","Python"],
+answer: 1
+},
+{
+question: "Which language is used for styling web pages?",
+options: ["HTML","JQuery","CSS","SQL"],
+answer: 2
+},
+{
+question: "Which language adds interactivity to websites?",
+options: ["JavaScript","C++","Java","PHP"],
+answer: 0
+}
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion(){
+
+const q = quiz[currentQuestion];
+
+document.getElementById("question").innerText = q.question;
+
+document.getElementById("opt0").innerText = q.options[0];
+document.getElementById("opt1").innerText = q.options[1];
+document.getElementById("opt2").innerText = q.options[2];
+document.getElementById("opt3").innerText = q.options[3];
+
+const radios = document.getElementsByName("answer");
+radios.forEach(r => r.checked = false);
+
+}
+
+function nextQuestion(){
+
+const selected = document.querySelector('input[name="answer"]:checked');
+
+if(!selected){
+alert("Please select an answer before proceeding!");
+return;
+}
+
+if(parseInt(selected.value) === quiz[currentQuestion].answer){
+score++;
+}
+
+currentQuestion++;
+
+if(currentQuestion < quiz.length){
+loadQuestion();
+}
+else{
+document.querySelector(".quiz-container").innerHTML =
+"<h2>Quiz Completed 🎉</h2><p>Your Score: "+score+" / "+quiz.length+"</p>";
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
