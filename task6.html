@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Landing Page</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+/* HEADER */
+
+header{
+background:#2c3e50;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* HERO SECTION */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:50px;
+background:white;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.hero-text p{
+margin-bottom:20px;
+}
+
+.hero img{
+width:350px;
+border-radius:10px;
+}
+
+.btn{
+background:#3498db;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#2980b9;
+}
+
+/* FEATURES */
+
+.features{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:40px;
+flex-wrap:wrap;
+}
+
+.feature-card{
+background:white;
+padding:20px;
+width:250px;
+border-radius:8px;
+box-shadow:0 4px 8px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+/* CONTACT */
+
+.contact{
+background:white;
+padding:40px;
+text-align:center;
+}
+
+input, textarea{
+width:80%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+footer{
+background:#2c3e50;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero img{
+margin-top:20px;
+}
+
+.features{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>TechProduct</h2>
+<nav>
+<a href="#">Home</a>
+<a href="#">Features</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+<h1>Smart Tech Product</h1>
+<p>Experience the future with our innovative technology product designed for modern users.</p>
+
+<button class="btn" onclick="showMessage()">Learn More</button>
+</div>
+
+<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f" alt="Tech Product">
+
+</section>
+
+<section class="features">
+
+<div class="feature-card">
+<h3>Fast Performance</h3>
+<p>Optimized technology for high speed and efficiency.</p>
+</div>
+
+<div class="feature-card">
+<h3>Modern Design</h3>
+<p>Beautiful and minimal interface for better user experience.</p>
+</div>
+
+<div class="feature-card">
+<h3>Secure</h3>
+<p>Advanced security features to protect your data.</p>
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact Us</h2>
+
+<form onsubmit="submitForm(event)">
+<input type="text" id="name" placeholder="Your Name" required><br>
+<input type="email" id="email" placeholder="Your Email" required><br>
+<textarea id="message" placeholder="Your Message"></textarea><br>
+
+<button class="btn">Send Message</button>
+
+</form>
+
+<p id="formMessage"></p>
+
+</section>
+
+<footer>
+<p>© 2026 TechProduct Landing Page</p>
+</footer>
+
+<script>
+
+function showMessage(){
+alert("Welcome! Thanks for learning more about our product.");
+}
+
+function submitForm(event){
+
+event.preventDefault();
+
+const name=document.getElementById("name").value;
+
+document.getElementById("formMessage").innerText=
+"Thank you "+name+"! Your message has been received.";
+
+}
+
+</script>
+
+</body>
+</html>
